@@ -1,0 +1,25 @@
+# Product facts — Acme Helpdesk (synthetic example)
+# The ONLY permitted source of product names, claims, and URLs for email copy.
+# Every entry: fact + source + date. Stale facts are renewal triggers.
+
+meta:
+  company: Acme Helpdesk
+  updated: 2026-07-01
+  owner: lifecycle-team
+
+products:
+  auto_replies:
+    name: "Auto-Replies"          # exact casing — the dictionary the copy skill enforces
+    urls:
+      settings: "https://app.acme.example/settings/auto-replies"
+      docs: "https://docs.acme.example/auto-replies/setup"
+    facts:
+      time_saved: { claim: "teams report ~6 hrs/week saved", source: "2026 customer survey", line: L34 }
+      setup_time: { claim: "median setup: 12 minutes", source: "product analytics 2026-06", line: L36 }
+
+  integrations:
+    name: "Integrations"
+    urls:
+      shopify: "https://app.acme.example/integrations/shopify"
+    facts:
+      shopify_v2: { claim: "new: Shopify order-status auto-replies", source: "release notes 2026-06-12", line: L58 }

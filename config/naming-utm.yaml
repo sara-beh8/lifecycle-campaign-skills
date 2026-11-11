@@ -1,0 +1,48 @@
+# Naming & UTM config — Acme Helpdesk (synthetic example)
+# The closed vocabularies the naming-and-tracking skill draws from.
+# Adding a value = a PR to this file, reviewed like code. That's the point.
+
+meta:
+  company: Acme Helpdesk
+  updated: 2026-07-01
+  owner: lifecycle-team
+
+campaign_name:
+  format: "[{team} {scope}] {motion} | {audience} | {variant?}"
+  slug_format: "{team}-{scope}_{motion}_{audience}_{variant?}"   # lowercase; '_' between parts, '-' inside
+
+teams:
+  - { prefix: "GRW Lifecycle", slug: "grw-lifecycle" }
+  - { prefix: "GRW Onboarding", slug: "grw-onboarding" }
+  - { prefix: "MKT Newsletter", slug: "mkt-newsletter" }
+
+motions:      # the job the campaign does
+  - adopt          # feature adoption
+  - cross-sell
+  - winback
+  - weekly-email
+  - trial-convert
+
+audiences:    # must match a registry-documented segment
+  - smb
+  - commercial
+  - trial
+  - dormant
+  - all-active
+
+utm_source:   # where the click physically happens
+  - customer-io
+  - in-app
+  - newsletter
+
+utm_medium:
+  - email
+  - in-product
+
+utm_content:
+  format: "{asset}_{placement}"      # e.g. email-2_cta-primary
+  placements: [cta-primary, cta-secondary, footer-link, tip-block]
+
+dashboard:
+  join_key: utm_campaign             # = registry slug, everywhere, no exceptions
+  attribution_window_days: 7
